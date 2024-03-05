@@ -1,9 +1,15 @@
-## Practical for sequence to sequence model
+## practical for sequence to sequence model & discord bot
 
 
 ### requirements
-`pip install tensorflow numpy`
+`pip install tensorflow numpy discord.py`
 
+
+### discord bot
+- a discord bot *token* will be needed to run the bot
+- a discord *server* for you to place your bot in will be required as well
+- you can create a discord bot [here](https://discord.com/developers/applications)
+- further instructions: read the following [documentation](https://discordpy.readthedocs.io/en/stable/discord.html)
 
 ### acknowledgements
 - code from [keras documentation](https://keras.io/examples/nlp/lstm_seq2seq/)
