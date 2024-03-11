@@ -10,10 +10,7 @@ latent_dim = 256
 num_samples = 10000
 data_path = "fra.txt"
 
-bot = commands.Bot(command_prefix = "/", intents = discord.Intents.all())
-
-intents = discord.Intents.default()
-intents.members = True
+bot = commands.Bot(command_prefix = "/", intents = discord.Intents.default())
 
 model = keras.models.load_model("s2s_model.keras")
 
@@ -148,7 +145,7 @@ async def on_ready():
 @bot.tree.command(description="translate english to chinese")
 async def translate(interaction: discord.Interaction, content: str):
     input_seq = np.zeros((1, max_enc_seqlen, num_enc_token), dtype='float32')
-    for t, char in enumerate(content):
+    for t, char in enumerate(content.lower()):
         if char in input_token_index:
             input_seq[0, t, input_token_index[char]] = 1.0
         else:
@@ -158,7 +155,7 @@ async def translate(interaction: discord.Interaction, content: str):
 
     decoded_sentence = decode_sequence(input_seq)
     
-    await interaction.response.send_message(decoded_sentence)
+    await interaction.channel.send(decoded_sentence)
 
 
 bot.run(BOT_TOKEN)
