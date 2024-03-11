@@ -2,6 +2,8 @@
 
 
 ### requirements
+note: using python 3.11.7
+
 `pip install tensorflow numpy discord.py`
 
 
